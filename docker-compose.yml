@@ -1,0 +1,14 @@
+version: "3"
+services:
+  kafka:
+    image: kafka-docker
+    ports:
+    - "2181:2181"
+    - "9092:9092"
+    volumes:
+    - /tmp/kafka:/tmp/kafka-logs
+    - /tmp/zookeeper:/tmp/zookeeper
+
+  kafka-docker:
+      image: kafka-docker
+      command: tail -f /var/log/dmesg
